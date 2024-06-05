@@ -3,6 +3,7 @@ const axios = require('axios');
 const bodyParser = require('body-parser');
 const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3050;
@@ -14,6 +15,7 @@ const JOB_SERVICE_PORT = process.env.JOB_SERVICE_PORT || 9000;
 const TRACKING_SERVICE_HOST = process.env.TRACKING_SERVICE_HOST || 'microservice3';
 const TRACKING_SERVICE_PORT = process.env.TRACKING_SERVICE_PORT || 9850;
 
+app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 
